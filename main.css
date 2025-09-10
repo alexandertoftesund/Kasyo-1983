@@ -170,7 +170,7 @@ body {
 }
 
 .rotateCalc {
-    animation: rotateCalc 4s ease-in-out;
+    animation: rotateCalc 3s ease-in-out;
 }
 
 @keyframes slide-in {
@@ -228,21 +228,12 @@ body {
 
 @keyframes rotateCalc {
     0%, 100% {
-        transform: rotate(0) scale(1);
+        transform: rotate(0);
     }
     10% {
-        transform: rotate(180deg) scale(1.15);
-    }
-    30% {
-        transform: rotate(180deg) scale(1.35);
-    }
-    70% {
-        transform: rotate(180deg) scale(1.35);
-    }
-    80% {
-        transform: rotate(180deg) scale(1);
+        transform: rotate(180deg);
     }
     90% {
-        transform: rotate(0) scale(1);
+        transform: rotate(180deg);
     }
 }
