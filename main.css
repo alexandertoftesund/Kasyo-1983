@@ -48,7 +48,7 @@ body {
     height: 100%;
     color: rgb(255, 156, 228);
     font-size: 1.25em;
-    padding: 4px;
+    padding: 2px;
     animation: slide-in 4s linear infinite;
 }
 
@@ -70,7 +70,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 80px;
-    color: var(--dark-text);;
+    color: var(--dark-text);
 }
 
 .calculator__displayScreen {
