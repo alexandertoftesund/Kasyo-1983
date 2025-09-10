@@ -117,6 +117,7 @@ const createHTML = () => {
 createHTML();
 
 /* Get generated HTML elements*/
+const calculatorContainer = document.querySelector(".calculator__container");
 const displayScreen = document.querySelector(".calculator__displayScreen");
 const calculatorKeys = document.querySelectorAll(".calculator__key");
 const equalBtn = document.querySelector(".calculator__key--equal");
@@ -126,8 +127,6 @@ const addBtn = document.querySelector(".calculator__key--add");
 const divideBtn = document.querySelector(".calculator__key--divide");
 const multiplyBtn = document.querySelector(".calculator__key--multiply");
 const clearBtn = document.querySelector(".calculator__key--clear");
-
-//let currentNumber = "";
 
 const setEventListeners = () => {
 
@@ -157,24 +156,29 @@ const setEventListeners = () => {
         });
     });
 };
-
 setEventListeners();
-
 
 const calculate = () => {
     try {
         const currentValue = displayScreen.innerHTML;
         const result = eval(currentValue);
         displayScreen.innerHTML = result;
-        //currentNumber = result.toString();
+        if (result === 58008) {
+          calculatorContainer.classList.add("rotateCalc");
+        }
     } catch (error) {
         displayScreen.innerHTML = "ERROR";
         displayScreen.style.color = "rgb(255, 67, 67)";
     };
 };
 
+calculatorContainer.addEventListener('animationend', (event) => {
+  if (event.animationName === 'rotateCalc') {
+    calculatorContainer.classList.remove('rotateCalc');
+    displayScreen.innerHTML = ":D";
+  }
+});
 const clearDisplay = () => {
-    //currentNumber = "0";
     displayScreen.innerHTML = "0";
 }
 
@@ -187,7 +191,6 @@ const backspace = () => {
         displayScreen.innerHTML = newValue;
     }
 };
-
 
 
 // 4. Support functions
