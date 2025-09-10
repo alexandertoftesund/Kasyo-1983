@@ -49,6 +49,7 @@ body {
     color: rgb(255, 156, 228);
     font-size: 1.25em;
     padding: 4px;
+    animation: slide-in 6s linear infinite;
 }
 
 .calculator__container {
@@ -61,6 +62,7 @@ body {
     background-color: var(--light-background);
     background-image: url("palms.png");
     background-size: contain;
+    overflow: hidden;
 }
 
 .calculator__displayFrame {
@@ -90,6 +92,7 @@ body {
         1px -1px 0 #000,
         -1px  1px 0 #000,
         1px  1px 0 #000;
+    animation: flicker 0.15s infinite;
 }
 
 .calculator__keypad {
@@ -112,10 +115,12 @@ body {
 }
 
 .calculator__key:hover {
-    filter: opacity(75%);
     transform: scale(1.1);
-    box-shadow: 0 0 0 1px var(--dark-background);
-    border-radius: 10px;
+    border-radius: 20px;
+}
+
+.calculator__key:active {
+    background-color: rgb(38, 204, 255);
 }
 
 /* Element grid span settings*/
@@ -162,5 +167,26 @@ body {
     background-image: url("k.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 14%;
+    background-size: 16%;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-85%);
+    }
+
+    to {
+        transform: translateX(85%);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.98;
+      filter: brightness(1.02);
+    }
+    50% {
+        opacity: 1;
+      filter: brightness(0.97);
+    }
 }
